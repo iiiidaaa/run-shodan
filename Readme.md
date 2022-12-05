@@ -1,6 +1,7 @@
 # Usage
 ## Build
 ```shell
+make create-env
 make build
 ```
 
