@@ -4,8 +4,8 @@
 make build
 ```
 
-上記コマンド成功後、`.env`ファイルが作成されます。
-各サービスのAPIキーを`.env`ファイルに記入してください
+上記コマンド成功後、`.env`ファイルが作成されます。  
+各サービスのAPIキーを`.env`ファイルに記入してください  
 `DB_~~`は修正すると動かなくなると思います
 
 ## Exec DB
@@ -13,8 +13,8 @@ make build
 docker-compose up -d
 ```
 
-metabase,db立ち上げ後、`localhost:3000`でmetabaseにアクセスできます。
-初回アクセス時は、metabaseの初期設定が必要です。
+metabase,db立ち上げ後、`localhost:3000`でmetabaseにアクセスできます。  
+初回アクセス時は、metabaseの初期設定が必要です。  
 以下の通りに入力してください。
 - 言語: お好みで (以下Japaneseを選択した時の表示で説明します)
 - 名前、ユーザー情報: お好みで メアドとパスワードはmetabaseのログインに必要になるはず。。
