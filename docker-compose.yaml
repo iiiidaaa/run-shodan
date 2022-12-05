@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  osint-db:
+    networks:
+      - osint
+    volumes:
+      - "./mysql:/var/lib/mysql"
+    build:
+      context: db
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_HOST=%
+  metabase:
+    container_name: metabase
+    image: metabase/metabase:latest
+    volumes:
+      - "./metabase/data:/mnt/data"
+    networks:
+      - osint
+    environment:
+      - MB_DB_TYPE=mysql
+      - MB_DB_DBNAME=metabase
+      - MB_DB_PORT=3306
+      - MB_DB_USER=metabase
+      - MB_DB_PASS=metabase
+      - MB_DB_HOST=osint-db
+    links:
+      - osint-db
+    depends_on:
+      - "osint-db"
+    ports:
+      - "3000:3000"
+networks:
+  osint:
+    driver: bridge
+    attachable: true
